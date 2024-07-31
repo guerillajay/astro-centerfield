@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import staticShock from '../images/staticShock.png';
+
+interface NavigationLink {
+  content: string
+  href: string
+  target: boolean
+}
+
+const NavLinks: NavigationLink[] = [
+  {
+    content: 'Home',
+    href: '/',
+    target: false,
+  },
+  {
+    content: 'Deals',
+    href: '/deals',
+    target: false,
+  },
+  {
+    content: 'Internet',
+    href: '/internet',
+    target: false,
+  },
+  {
+    content: 'Wireless',
+    href: '/wireless',
+    target: false,
+  },
+]
+---
+
+<header>
+  <Image src={staticShock} alt="client logo" />
+  {NavLinks.map((link) => {
+    return <a href={link.href}>{link.content}</a>
+  })}
+  <a href="tel:888-888-8888">888-888-8888</a>
+</header>
